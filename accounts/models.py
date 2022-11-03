@@ -29,11 +29,11 @@ class UserManager(BaseUserManager):
         self, first_name, last_name, username, email, password=None
     ):
         user = self.create_user(
+            email=self.normalize_email(email),
+            username=username,
+            password=password,
             first_name=first_name,
             last_name=last_name,
-            username=username,
-            email=self.normalize_email(email),
-            password=password,
         )
 
         user.is_admin = True
@@ -42,6 +42,8 @@ class UserManager(BaseUserManager):
         user.is_superadmin = True
 
         user.save(using=self._db)
+
+        return user
 
 
 class User(AbstractBaseUser):
