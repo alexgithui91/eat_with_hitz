@@ -5,7 +5,13 @@ from django.db.models.fields.related import ForeignKey, OneToOneField
 # Create your models here.
 class UserManager(BaseUserManager):
     def create_user(
-        self, first_name, last_name, username, email, password=None
+        self,
+        first_name,
+        last_name,
+        username,
+        email,
+        phone_number,
+        password=None,
     ):
         if not email:
             raise ValueError("User must have an email address")
@@ -13,11 +19,15 @@ class UserManager(BaseUserManager):
         if not username:
             raise ValueError("User must have a username")
 
+        if not phone_number:
+            raise ValueError("User must have a phonenumber")
+
         user = self.model(
             email=self.normalize_email(email),
             username=username,
             first_name=first_name,
             last_name=last_name,
+            phone_number=phone_number,
         )
 
         user.set_password(password)
@@ -26,7 +36,13 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(
-        self, first_name, last_name, username, email, password=None
+        self,
+        first_name,
+        last_name,
+        username,
+        email,
+        phone_number,
+        password=None,
     ):
         user = self.create_user(
             email=self.normalize_email(email),
@@ -34,6 +50,7 @@ class UserManager(BaseUserManager):
             password=password,
             first_name=first_name,
             last_name=last_name,
+            phone_number=phone_number,
         )
 
         user.is_admin = True
