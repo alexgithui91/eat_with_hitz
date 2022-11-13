@@ -30,8 +30,9 @@ def registerUser(request):
 
             return redirect("registerUser")
         else:
-            print("invalid form")
-            print(form.errors)
+            # print("invalid form")
+            # print(form.errors)
+            pass
     else:
         form = UserForm()
 
