@@ -10,7 +10,7 @@ class UserManager(BaseUserManager):
         last_name,
         username,
         email,
-        # phone_number,
+        phone_number,
         password=None,
     ):
         if not email:
@@ -19,15 +19,15 @@ class UserManager(BaseUserManager):
         if not username:
             raise ValueError("User must have a username")
 
-        # if not phone_number:
-        #     raise ValueError("User must have a phonenumber")
+        if not phone_number:
+            raise ValueError("User must have a phonenumber")
 
         user = self.model(
             email=self.normalize_email(email),
             username=username,
             first_name=first_name,
             last_name=last_name,
-            # phone_number=phone_number,
+            phone_number=phone_number,
         )
 
         user.set_password(password)
@@ -41,7 +41,7 @@ class UserManager(BaseUserManager):
         last_name,
         username,
         email,
-        # phone_number,
+        phone_number,
         password=None,
     ):
         user = self.create_user(
@@ -50,7 +50,7 @@ class UserManager(BaseUserManager):
             password=password,
             first_name=first_name,
             last_name=last_name,
-            # phone_number=phone_number,
+            phone_number=phone_number,
         )
 
         user.is_admin = True
@@ -89,7 +89,7 @@ class User(AbstractBaseUser):
     is_superadmin = models.BooleanField(default=False)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username", "first_name", "last_name"]
+    REQUIRED_FIELDS = ["username", "first_name", "last_name", "phone_number"]
 
     objects = UserManager()
 
