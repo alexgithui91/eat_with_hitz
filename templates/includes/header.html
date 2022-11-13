@@ -16,7 +16,7 @@
                             </figure>
                         </div>
 
-                        <div class="main-location">
+                        <div class="main-location ml-5">
                             <ul>
                                 <li class="location-has-children choose-location">
                                     <form action="#">
@@ -33,8 +33,12 @@
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="login-option">
                             <a class="cs-color cs-popup-joinus-btn login-popup" data-target="#sign-in"
-                                data-toggle="modal" href="#user-register">Login / Register</a><a class="get-start-btn"
-                                href="register-restaurant.html">
+                                data-toggle="modal" href="#user-register">Login</a> /
+                            <span>
+                                <a href="{% url 'registerUser' %}"
+                                    class="cs-color cs-popup-joinus-btn login-popup ml-0">Register</a>
+                            </span>
+                            <a class="get-start-btn" href="register-restaurant.html">
                                 Register
                                 Restaurant </a>
                         </div>
