@@ -6,7 +6,6 @@ from .models import User
 # Create your views here.
 def registerUser(request):
     if request.method == "POST":
-        print(request.POST)
         form = UserForm(request.POST)
         if form.is_valid():
             # Create user using form
@@ -17,10 +16,6 @@ def registerUser(request):
             # user.save()
 
             # # Create the user using create_user method
-            # "username",
-            # "email",
-            # "phone_number",
-            # "password",
             first_name = form.cleaned_data["first_name"]
             last_name = form.cleaned_data["last_name"]
             username = form.cleaned_data["username"]
@@ -32,9 +27,11 @@ def registerUser(request):
             )
             user.role = User.CUSTOMER
             user.save()
-            print("I have created ze user")
 
             return redirect("registerUser")
+        else:
+            print("invalid form")
+            print(form.errors)
     else:
         form = UserForm()
 
