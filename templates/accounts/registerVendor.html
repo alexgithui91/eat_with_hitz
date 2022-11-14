@@ -11,13 +11,14 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                     <div class="user-dashboard loader-holder">
                         <div class="user-holder">
-                            <h4 class="text-center" style="margin-bottom: 0;">WELCOME TO EAT WITH HITZ</h4>
+                            <h4 class="text-center" style="margin-bottom: 0;">PARTNER WITH EAT WITH HITZ</h4>
                             <p class="text-center">Please fill this form to get yourself onboarded in the Eat With Hitz
                                 marketplace.</p>
                             <hr>
                             <div id="restaurant-sets-holder">
-                                <form action="{% url 'registerUser' %}"
-                                    class="form-fields-set foodbakery-dev-restaurant-form" method="post">
+                                <form action="{% url 'registerVendor' %}"
+                                    class="form-fields-set foodbakery-dev-restaurant-form" method="post"
+                                    enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <ul
                                         class="register-add-restaurant-tab-container restaurant-information-tab-container">
@@ -39,12 +40,25 @@
                                                                 </div>
                                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                     <div class="field-holder">
-                                                                        <label>Email Address</label>{{form.email}}
+                                                                        <label>Vendor
+                                                                            Name</label>{{vendor_form.vendor_name}}
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                     <div class="field-holder">
-                                                                        <label>Phone Number</label>{{form.phone_number}}
+                                                                        <label>Vendor Phone
+                                                                            Number</label>{{form.phone_number}}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <div class="field-holder">
+                                                                        <label>Vendor
+                                                                            License</label>{{vendor_form.vendor_license}}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                    <div class="field-holder">
+                                                                        <label>Email Address</label>{{form.email}}
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
