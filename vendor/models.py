@@ -11,7 +11,6 @@ class Vendor(models.Model):
     )
     vendor_name = models.CharField(max_length=255)
     vendor_license = models.ImageField(upload_to="vendor/license")
-    vendor_phone_number = models.CharField(max_length=255)
     is_approved = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now_add=True)
