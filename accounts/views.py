@@ -7,6 +7,8 @@ from .models import User, UserProfile
 from django.contrib import messages, auth
 from vendor.forms import VendorForm
 from django.core.exceptions import PermissionDenied
+from django.utils.http import urlsafe_base64_decode
+from django.contrib.auth.tokens import default_token_generator
 
 # Restrict vendor from accessing customer page
 def check_role_vendor(user):
@@ -58,7 +60,7 @@ def registerUser(request):
                 request, "Your account has been created successfully!"
             )
 
-            return redirect("registerUser")
+            return redirect("myAccount")
         else:
             print("invalid form")
             print(form.errors)
@@ -105,7 +107,7 @@ def registerVendor(request):
                 request,
                 "Your account has been registered successfully! Please wait for approval.",
             )
-            return redirect("registerVendor")
+            return redirect("myAccount")
         else:
             print("invalid form")
             print(form.errors)
@@ -123,7 +125,22 @@ def registerVendor(request):
 
 def activate(request, uidb64, token):
     # Activate user by setting is_active to True
-    return
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = User._default_manager.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    if user is not None and default_token_generator.check_token(user, token):
+        user.is_active = True
+        user.save()
+        messages.success(
+            request, "Congratulations! Your account has been activated"
+        )
+        return redirect("myAccount")
+    else:
+        messages.error(request, "Invalid activation link")
+        return redirect("myAccount")
 
 
 def login(request):
