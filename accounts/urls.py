@@ -12,4 +12,11 @@ urlpatterns = [
     ),
     path("vendorDashboard/", views.vendorDashboard, name="vendorDashboard"),
     path("activate/<uidb64>/<token>/", views.activate, name="activate"),
+    path("forgotPassword/", views.forgotPassword, name="forgotPassword"),
+    path(
+        "resetPasswordValidate/<uidb64>/<token>/",
+        views.resetPasswordValidate,
+        name="resetPasswordValidate",
+    ),
+    path("resetPassword/", views.resetPassword, name="resetPassword"),
 ]

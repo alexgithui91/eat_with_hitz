@@ -7,7 +7,7 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 
 
-def detectUser(user):
+def detect_user(user):
     if user.role == 1:
         redirectUrl = "vendorDashboard"
         return redirectUrl
@@ -19,12 +19,11 @@ def detectUser(user):
         return redirectUrl
 
 
-def send_verification_email(request, user):
+def send_verification_email(request, user, mail_subject, email_template):
     from_email = settings.DEFAULT_FROM_EMAIL
     current_site = get_current_site(request)
-    mail_subject = "Please activate your account"
     message = render_to_string(
-        "accounts/emails/account_verification_email.html",
+        email_template,
         {
             "user": user,
             "domain": current_site,

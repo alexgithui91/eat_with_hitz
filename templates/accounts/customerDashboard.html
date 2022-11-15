@@ -2,8 +2,7 @@
 
 {% block content %}
 
-<h3>WELCOME CUSTOMER, {{user.username}}</h3>
-<p>This is a {{user.get_role}}</p>
+<h3>Welcome {{user.get_role}}, {{user.username}}</h3>
 
 {% include 'includes/alerts.html' %}
 
