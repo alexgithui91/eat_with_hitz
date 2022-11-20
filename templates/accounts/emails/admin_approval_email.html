@@ -1,0 +1,12 @@
+{% autoescape off %}
+
+Hi {{user.get_role}} {{user.first_name}},
+
+{% if is_approved %}
+Congratulations! Your restaurant has been approved by our Admin Team. Welcome to Eat With Hitz!
+{% else %}
+We're sorry! Your application to the marketplace has been declined. Please try again in 30 days or contact support via
+testingsupport@gmail.com
+{% endif %}
+
+{% endautoescape %}
