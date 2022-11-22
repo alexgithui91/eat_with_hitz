@@ -24,3 +24,9 @@
     animation-duration: 10s;
     z-index: 99;
 }
+
+.btn.btn-info {
+    padding: 2px 1.7em;
+    font-size: 12px;
+    cursor: pointer;
+}
