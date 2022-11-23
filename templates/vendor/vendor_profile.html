@@ -37,19 +37,22 @@
                                                                     <div class="drag-list">
                                                                         <div class="item-thumb">
                                                                             <img class="thumbnail"
-                                                                                src="assets/extra-images/listing-logo18.png"
-                                                                                alt="">
+                                                                                src="{{profile.profile_picture.url}}"
+                                                                                alt="Logo">
                                                                         </div>
                                                                     </div>
                                                                 </li>
                                                             </ul>
                                                         </div>
                                                         <div class="text-holder">
-                                                            <label>Update Logo</label>
+                                                            <label>Update Profile Picture</label>
                                                             <div class="upload-gallery">
                                                                 {{profile_form.profile_picture}}
                                                             </div>
                                                         </div>
+                                                        <label
+                                                            class="text-danger">{{profile_form.profile_picture.errors}}
+                                                        </label>
                                                     </div>
                                                     <div class="restaurant-info">
                                                         <div class="img-holder">
@@ -58,8 +61,8 @@
                                                                     <div class="drag-list">
                                                                         <div class="item-thumb">
                                                                             <img class="thumbnail"
-                                                                                src="assets/extra-images/listing-logo18.png"
-                                                                                alt="">
+                                                                                src="{{profile.cover_photo.url}}"
+                                                                                alt="Cover Photo">
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -71,6 +74,8 @@
                                                                 {{profile_form.cover_photo}}
                                                             </div>
                                                         </div>
+                                                        <label class="text-danger">{{profile_form.cover_photo.errors}}
+                                                        </label>
                                                     </div>
                                                     <div class="restaurant-info">
                                                         <div class="img-holder">
@@ -79,8 +84,8 @@
                                                                     <div class="drag-list">
                                                                         <div class="item-thumb">
                                                                             <img class="thumbnail"
-                                                                                src="assets/extra-images/listing-logo18.png"
-                                                                                alt="">
+                                                                                src="{{vendor.vendor_license.url}}"
+                                                                                alt="Vendor License">
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -92,6 +97,8 @@
                                                                 {{vendor_form.vendor_license}}
                                                             </div>
                                                         </div>
+                                                        <label class="text-danger">{{vendor_form.vendor_license.errors}}
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
