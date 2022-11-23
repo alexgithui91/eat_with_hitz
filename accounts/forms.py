@@ -49,9 +49,7 @@ class UserProfileForm(forms.ModelForm):
             "cover_photo",
             "address",
             "country",
-            "state",
             "city",
-            "pin_code",
             "latitude",
             "longitude",
         ]
