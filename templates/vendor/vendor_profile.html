@@ -48,11 +48,11 @@
                                                             <label>Update Profile Picture</label>
                                                             <div class="upload-gallery">
                                                                 {{profile_form.profile_picture}}
+                                                                <label
+                                                                    class="text-danger">{{profile_form.profile_picture.errors}}
+                                                                </label>
                                                             </div>
                                                         </div>
-                                                        <label
-                                                            class="text-danger">{{profile_form.profile_picture.errors}}
-                                                        </label>
                                                     </div>
                                                     <div class="restaurant-info">
                                                         <div class="img-holder">
@@ -72,10 +72,11 @@
                                                             <label>Update Cover Photo</label>
                                                             <div class="upload-gallery">
                                                                 {{profile_form.cover_photo}}
+                                                                <label
+                                                                    class="text-danger">{{profile_form.cover_photo.errors}}
+                                                                </label>
                                                             </div>
                                                         </div>
-                                                        <label class="text-danger">{{profile_form.cover_photo.errors}}
-                                                        </label>
                                                     </div>
                                                     <div class="restaurant-info">
                                                         <div class="img-holder">
@@ -95,10 +96,11 @@
                                                             <label>Update License</label>
                                                             <div class="upload-gallery">
                                                                 {{vendor_form.vendor_license}}
+                                                                <label
+                                                                    class="text-danger">{{vendor_form.vendor_license.errors}}
+                                                                </label>
                                                             </div>
                                                         </div>
-                                                        <label class="text-danger">{{vendor_form.vendor_license.errors}}
-                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -109,13 +111,6 @@
                                                         {{vendor_form.vendor_name}}
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="field-holder">
-                                                        <label>Address *</label>
-                                                        {{profile_form.address}}
-                                                        <small class="text-muted float-right">powered by Google</small>
-                                                    </div>
-                                                </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                                     <div class="field-holder">
                                                         <label>Country *</label>
@@ -124,20 +119,15 @@
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                                     <div class="field-holder">
-                                                        <label>State *</label>
-                                                        {{profile_form.state}}
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                    <div class="field-holder">
                                                         <label>City *</label>
                                                         {{profile_form.city}}
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div class="field-holder">
-                                                        <label>Pin Code *</label>
-                                                        {{profile_form.pin_code}}
+                                                        <label>Address *</label>
+                                                        {{profile_form.address}}
+                                                        <small class="text-muted float-right">powered by Google</small>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
